@@ -1,7 +1,7 @@
 {
-    "name": "laravel/framework",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "loravel/framework",
+    "description": "The Loravel Framework.",
+    "keywords": ["framework", "laravel", "loravel"],
     "license": "MIT",
     "authors": [
         {
@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
+        "php": ">=5.6",
         "classpreloader/classpreloader": "~1.0.2",
         "d11wtq/boris": "~1.0",
         "ircmaxell/password-compat": "~1.0",
