@@ -1,6 +1,6 @@
 ## Loravel Framework (Kernel)
 
-[![Build Status](https://travis-ci.org/loravel/framework.svg)](https://travis-ci.org/loravel/framework)
+[![Build Status](https://travis-ci.org/Loravel/framework.svg)](https://travis-ci.org/Loravel/framework)
 [![Total Downloads](https://poser.pugx.org/loravel/framework/d/total.svg)](https://packagist.org/packages/loravel/framework)
 [![Latest Stable Version](https://poser.pugx.org/loravel/framework/v/stable.svg)](https://packagist.org/packages/loravel/framework)
 [![Latest Unstable Version](https://poser.pugx.org/loravel/framework/v/unstable.svg)](https://packagist.org/packages/loravel/framework)
