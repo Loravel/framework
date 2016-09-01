@@ -1,6 +1,7 @@
 <?php namespace Illuminate\Redis;
 
 use Predis\Client;
+use Predis\Response\Status;
 
 class Database {
 
@@ -80,7 +81,24 @@ class Database {
 	 */
 	public function command($method, array $parameters = array())
 	{
-		return call_user_func_array(array($this->clients['default'], $method), $parameters);
+		$result = call_user_func_array([$this->clients['default'], $method], $parameters);
+
+		if (in_array(strtolower($method), ['zrange', 'zrevrange', 'zrangebyscore', 'zrevrangebyscore']) &&
+			isset($parameters[3]) && 'withscores' == strtolower($parameters[3]) &&
+			is_array($result)
+		) {
+			$result2 = [];
+			foreach ($result as $key => $value) {
+				$result2[] = [$key, $value];
+			}
+			$result = $result2;
+		}
+
+		if ($result instanceof Status) {
+			$result = $result->getPayload();
+		}
+
+		return $result;
 	}
 
 	/**
