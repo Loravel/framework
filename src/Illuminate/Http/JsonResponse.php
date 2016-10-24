@@ -20,7 +20,7 @@ class JsonResponse extends \Symfony\Component\HttpFoundation\JsonResponse {
 	 * @param  int    $status
 	 * @param  array  $headers
 	 * @param  int    $options
-	*/
+	 */
 	public function __construct($data = null, $status = 200, $headers = array(), $options = 0)
 	{
 		$this->jsonOptions = $options;
@@ -45,11 +45,12 @@ class JsonResponse extends \Symfony\Component\HttpFoundation\JsonResponse {
 	 */
 	public function setData($data = array())
 	{
-		$this->data = $data instanceof JsonableInterface
-								   ? $data->toJson($this->jsonOptions)
-								   : json_encode($data, $this->jsonOptions);
+		if ($data instanceof JsonableInterface) {
+			$this->data = $data->toJson($this->jsonOptions);
+			return $this->update();
+		}
 
-		return $this->update();
+		return parent::setData($data);
 	}
 
 	/**
